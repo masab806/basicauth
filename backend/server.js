@@ -5,6 +5,10 @@ const bcrypt = require("bcrypt")
 const { db } = require("./config/db.config")
 const { users } = require("./model/schema")
 const { eq } = require("drizzle-orm")
+const dotenv = require("dotenv")
+
+
+dotenv.config()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
