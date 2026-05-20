@@ -11,6 +11,7 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 console.log("CHECKING DEPLOYMENT AGAIN........")
+console.log("THIS IS DEPLOYMENT")
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
