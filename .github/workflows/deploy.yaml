@@ -21,6 +21,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          scripts: |
+          script: |
             cd /var/www/basicauth
             ./scripts/deploy.sh
