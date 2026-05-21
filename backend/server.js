@@ -18,7 +18,7 @@ app.use(cors({
     origin: process.env.ORIGIN
 }))
 
-app.use("/register", async (req,res)=> {
+app.post("/register", async (req,res)=> {
     try {
         const {email, username, password} = req.body
 
@@ -62,7 +62,7 @@ app.use("/register", async (req,res)=> {
     }
 })
 
-app.use("/login", async (req,res)=> {
+app.post("/login", async (req,res)=> {
     try {
         const {email, password} = req.body
 
