@@ -31,6 +31,9 @@ function App() {
           email: form.email,
           password: form.password,
         })
+
+        console.log(data)
+
         setStatus({ type: 'success', message: `Welcome back, ${data.user?.username || 'user'}!` })
       }
     } catch (err: any) {

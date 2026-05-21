@@ -6,12 +6,10 @@ const { db } = require("./config/db.config")
 const { users } = require("./model/schema")
 const { eq } = require("drizzle-orm")
 const dotenv = require("dotenv")
-
+const jwt = require("jsonwebtoken")
 
 dotenv.config()
 
-
-console.log("FINAL DEPLOYMENT TEST DONE.....")
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -88,6 +86,7 @@ app.use("/login", async (req,res)=> {
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
+        
 
         if(!isMatch){
             return res.status(401).json({
@@ -95,9 +94,17 @@ app.use("/login", async (req,res)=> {
             })
         }
 
+        const payload = {
+            username: user.username,
+            email: user.email
+        }
+
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: "7d"})
+
         return res.status(200).json({
             success: true,
             user,
+            token,
             message: "Login Successfull"
         })
 
