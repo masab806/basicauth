@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import './App.css'
 
-const API = 'http://localhost:3000'
+const API = import.meta.env.VITE_ORIGIN
 
 function App() {
   const [mode, setMode] = useState<'login' | 'register'>('login')
