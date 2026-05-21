@@ -10,11 +10,8 @@ const dotenv = require("dotenv")
 
 dotenv.config()
 
-console.log("CHECKING DEPLOYMENT AGAIN........")
-console.log("THIS IS DEPLOYMENT")
-console.log("FINAL DEPLOYMENT")
-console.log("MORE DEPLOYMENT")
-console.log("MORE AND MORE DEPLOYMENT")
+
+console.log("FINAL DEPLOYMENT TEST DONE.....")
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
